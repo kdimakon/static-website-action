@@ -47,7 +47,7 @@ jobs:
     if: contains(needs.tests.result, 'success' ) 
     steps:
       - name: Checkout development
-        uses: actions/checkout@development
+        uses: actions/checkout@v4
       - name: Merge development into production
         uses: devmasx/merge-branch@production
         with:
