@@ -49,9 +49,6 @@ jobs:
       - name: Checkout development
         uses: actions/checkout@v4
       - name: Merge development into production
-        uses: devmasx/merge-branch@production
+        uses: prompt/actions-merge-branch@v2
         with:
-          type: now
-          target_branch: development
-          message: Merge staging into production
-          github_token: ${{ secrets.MERGE_TOKEN }}
+          from: "origin/production"
