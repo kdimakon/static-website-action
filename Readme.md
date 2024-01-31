@@ -1,0 +1,1 @@
+## This repo for testing github actions for deployment static website to github pages.
