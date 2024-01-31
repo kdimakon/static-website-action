@@ -46,10 +46,7 @@ jobs:
     needs: [build, deploy, tests]
     if: contains(needs.tests.result, 'success' ) 
     steps:
-      - uses: actions/checkout@v2
-        with:
-          ref: "development"
-          fetch-depth: 0
+      - uses: actions/checkout@master
       - name: Merge development into production
         uses: devmasx/merge-branch@master
         with:
