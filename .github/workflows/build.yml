@@ -54,3 +54,4 @@ jobs:
         uses: prompt/actions-merge-branch@v2
         with:
           from: "origin/production"
+          github-token: ${{ secrets.MERGE_TOKEN }}
