@@ -46,8 +46,10 @@ jobs:
     needs: [build, deploy, tests]
     if: contains(needs.tests.result, 'success' ) 
     steps:
-      - name: Checkout development
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v2
+        with:
+          ref: "development"
+          fetch-depth: 0
       - name: Merge development into production
         uses: prompt/actions-merge-branch@v2
         with:
