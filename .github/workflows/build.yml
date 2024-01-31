@@ -46,7 +46,12 @@ jobs:
     needs: [build, deploy, tests]
     if: contains(needs.tests.result, 'success' ) 
     steps:
-      - name: pull request to main branch
-        uses: peter-evans/create-pull-request@v5
-        with: 
-          base: production
+      - name: Checkout development
+        uses: actions/checkout@development
+      - name: Merge development into production
+        uses: devmasx/merge-branch@production
+        with:
+          type: now
+          target_branch: development
+          message: Merge staging into production
+          github_token: ${{ secrets.MERGE_TOKEN }}
